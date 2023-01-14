@@ -1,0 +1,109 @@
+html
+
+head
+    title Basic wordle
+    <link rel="icon" href="data:,">
+
+body
+    include ./headers
+    link(rel="stylesheet", href="basic_wordle_style.css", type="text/css")
+    script(type="text/javascript", src="basic_wordle.js")
+
+
+    div#top(class="center")
+        div#title(class="title_words")
+            h3 Basic Wordle
+
+            div(class="unhide" id="space")
+                br
+                br
+            div(class="hide" id="correctMessage")
+                h3 Correct
+            div(class="hide" id="notValid")
+                h3 Not a word
+
+        div#playerBoard(class="box_center")
+
+            div#firstRow(class="flex-container")
+                input(type="text", value="", id="row_1_col_1", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_1_col_2", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_1_col_3", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_1_col_4", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_1_col_5", class="game_board_box",  MaxLength="1")
+
+            div#secondRow(class="flex-container")
+                input(type='text', value="", id="row_2_col_1", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_2_col_2", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_2_col_3", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_2_col_4", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_2_col_5", class="game_board_box",  MaxLength="1")
+
+            div#thirdRow(class="flex-container")
+                input(type='text', value="", id="row_3_col_1", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_3_col_2", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_3_col_3", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_3_col_4", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_3_col_5", class="game_board_box",  MaxLength="1")
+
+            div#fourthRow(class="flex-container")
+                input(type='text', value="", id="row_4_col_1", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_4_col_2", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_4_col_3", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_4_col_4", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_4_col_5", class="game_board_box",  MaxLength="1")
+
+            div#fithRow(class="flex-container")
+                input(type='text', value="", id="row_5_col_1", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_5_col_2", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_5_col_3", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_5_col_4", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_5_col_5", class="game_board_box",  MaxLength="1")
+
+            div#sixthRow(class="flex-container")
+                input(type='text', value="", id="row_6_col_1", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_6_col_2", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_6_col_3", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_6_col_4", class="game_board_box",  MaxLength="1")
+                input(type='text', value="", id="row_6_col_5", class="game_board_box",  MaxLength="1")
+
+
+        div#keyBoard(class="keyboard_center")
+            br
+            //input(type='button', value="Get yellow", class="skip_button", onclick=``)
+            //input(type='button', value="Get green", class="skip_button", onclick=``)
+            div#topRow(class="flex-container")
+                input(type='button', value="Q", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("Q")})`)
+                input(type='button', value="W", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("W")})`)
+                input(type='button', value="E", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("E")})`)
+                input(type='button', value="R", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("R")})`)
+                input(type='button', value="T", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("T")})`)
+                input(type='button', value="Y", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("Y")})`)
+                input(type='button', value="U", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("U")})`)
+                input(type='button', value="I", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("I")})`)
+                input(type='button', value="O", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("O")})`)
+                input(type='button', value="P", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("P")})`)
+
+            div#middleRow(class="flex-container")   
+                input(type='button', value="A", class="key_board_button_most_left_middle", onclick=`screenKeyPress(${JSON.stringify("A")})`)
+                input(type='button', value="S", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("S")})`)
+                input(type='button', value="D", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("D")})`)
+                input(type='button', value="F", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("F")})`)
+                input(type='button', value="G", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("G")})`)
+                input(type='button', value="H", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("H")})`)
+                input(type='button', value="J", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("J")})`)
+                input(type='button', value="K", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("K")})`)
+                input(type='button', value="L", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("L")})`)
+    
+            div#bottomRow(class="flex-container")
+                input(type='button', value="DEL", class="enter_del_key_board_button", onclick=`screenKeyPress(${JSON.stringify("DEL")})`)
+                input(type='button', value="Z", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("Z")})`)
+                input(type='button', value="X", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("X")})`)
+                input(type='button', value="C", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("C")})`)
+                input(type='button', value="V", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("V")})`)
+                input(type='button', value="B", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("B")})`)
+                input(type='button', value="N", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("N")})`)
+                input(type='button', value="M", class="key_board_button", onclick=`screenKeyPress(${JSON.stringify("M")})`)
+                input(type='button', value="ENTER", class="enter_del_key_board_button", onclick=`screenKeyPress(${JSON.stringify("ENTER")})`)
+           
+
+   

@@ -1,0 +1,23 @@
+html
+
+head
+    title Login/Sign-up Page
+
+body
+    script(type="text/javascript", src="../login.js")
+    link(rel="stylesheet", href="../loginStyle.css", type="text/css")
+
+    if(flag === 0)
+        h2 Login bellow:
+        -var type = "Login"
+    else
+        h2 Sign-Up bellow:
+        -var type = "Sign-Up"
+
+    h3 Username: 
+        input(type='text',  id="userName", value="")
+        
+    h3 password:  
+        input(type='password',  id="password", value="")
+
+    input(type='submit', value=`${type}`, style="width: 160px; height: 40px;",  onclick=`sendUserCredentialsInfo(${flag})`)

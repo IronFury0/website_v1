@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spotify Connect Example</title>
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+</head>
+<body>
+  <button id="play-button">Play Song</button>
+
+  <script>
+    window.onSpotifyWebPlaybackSDKReady = () => {
+        const player = new Spotify.Player({
+        name: 'Web Playback SDK Quick Start Player',
+        getOAuthToken: cb => { cb('BQA7bL2Wvgd-xqsaqRWw27uuzkY-LRBrfRgjcNOZYYxlVBzDu7cqqmLl8J8AhYhj8nJME7bJthXPhw7ScjGuoE23qlvgQC_D_5RqJ51jH5jJMTi_Jhv-yAZ1WZwlK14tNthW_ZOKH19tDRnFQmp4BKU4QfB7oilh5lKsAPZs5v6K5JofAIADXFIztdDqcBZqHUqs1fv_eLgroHtLfryQvlmbcLA'); }
+        });
+   
+
+        // Connect to the player!
+        player.connect();
+
+        player.addListener('ready', ({ device_id }) => {
+            console.log('Ready with Device ID', device_id);
+            const playButton = document.getElementById('play-button');
+            playButton.addEventListener('click', () => {
+                player.play('spotify:track:2ihCaVdNZmnHZWt0fvAM7B?si=43958177c8ca494b');
+            });
+        })
+
+        
+    }
+  </script>
+</body>
+</html>

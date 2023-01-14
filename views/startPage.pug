@@ -1,0 +1,24 @@
+html
+	head
+		title Supply list Home page
+body
+	include ./headers
+
+	div#main
+		h1 Welcome!
+
+
+		a(href="/user/login"): button(type="button", style="width: 100px; height: 20px;" ) Login
+		br
+		br
+
+		a(href="/user/create"): button(type="button", style="width: 100px; height: 20px;" ) Create User
+		|  (Don't use real personal info here)
+
+		br
+		br
+
+		a(href="/user/guest"): button(type="button", style="width: 100px; height: 20px;" ) Guest
+		|  (Data won't be saved)
+			
+	
