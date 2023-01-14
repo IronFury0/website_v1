@@ -54,7 +54,8 @@ mc.connect(mongoUrl, { useNewUrlParser: true },(err, client) => {
     if(err) throw err;
   
     db = client.db('testing');
-  
-    app.listen(3000);
+    
+    const port = process.env.PORT || 3000;
+    app.listen(port);
     console.log("Listening on port 3000");
 });
