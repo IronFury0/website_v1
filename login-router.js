@@ -15,7 +15,8 @@ router.get("/login", renderLogin);
 router.get("/create", renderSignUp);
 
 //updates database with new user data
-router.post("/validate", validateUserInfo);
+//router.post("/validate", validateUserInfo);
+router.post("/validate", test);
 
 //closes session 
 //router.post("/logOut", gotWord);
@@ -106,13 +107,24 @@ function validateUserInfo(req, res, next){
 }
 
 // Initialize database connection on server side
-mc.connect(mongoUrl, { useNewUrlParser: true },(err, client) => {
-    if(err) throw err;
+// mc.connect(mongoUrl, { useNewUrlParser: true },(err, client) => {
+//     if(err) throw err;
   
-    db = client.db('testing');
+//     db = client.db('testing');
   
-    //app.listen(3000);
-    //console.log("Listening on port 3000");
-});
+//     //app.listen(3000);
+//     //console.log("Listening on port 3000");
+// });
+
+
+function test(){
+    req.session.loggedin = true;
+    req.session.username = username;
+    req.session.userid = result.insertedId;
+    res.status(200);
+    res.end();
+}
+
+return; 
 
 module.exports = router;

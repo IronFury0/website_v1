@@ -15,21 +15,12 @@ app.set("view engine", "pug");
 app.set('views', './views');
 
 
-mc.connect(mongoUrl, {useNewUrlParser: true}, (err, client) => {
-    console.log("Connected to database!");
-
-    // makes new database
-    let db = client.db("testing"); 
-});
-
-
 //sets up session
 app.use(session({
     secret: '2803urp3wjefpwaabjkbvnop0',
     resave: true,
     saveUninitialized: true
 }));
-
 
 //render homepage
 app.get("/",(req, res)=> {
@@ -58,12 +49,12 @@ app.use("/guessSong", songGuessRouter);
  
 
 //Initialize database connection on server side
-mc.connect(mongoUrl, { useNewUrlParser: true },(err, client) => {
-    if(err) throw err;
+//mc.connect(mongoUrl, { useNewUrlParser: true },(err, client) => {
+   // if(err) throw err;
   
-    db = client.db('testing');
+   // db = client.db('testing');
     
     const port = process.env.PORT || 3000;
     app.listen(port);
     console.log("Listening on port 3000");
-});
+//});
