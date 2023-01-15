@@ -32,7 +32,7 @@ function renderSignUp(req, res, next){
     return;
 }
 
-
+/*
 function validateUserInfo(req, res, next){
     //get variables from client using url parsing
     let q = url.parse(req.url, true);
@@ -105,6 +105,7 @@ function validateUserInfo(req, res, next){
         return; 
     } 
 }
+*/
 
 // Initialize database connection on server side
 // mc.connect(mongoUrl, { useNewUrlParser: true },(err, client) => {
@@ -124,7 +125,5 @@ function test(){
     res.status(200);
     res.end();
 }
-
-return; 
 
 module.exports = router;
