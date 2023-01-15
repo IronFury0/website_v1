@@ -15,6 +15,14 @@ app.set("view engine", "pug");
 app.set('views', './views');
 
 
+mc.connect(mongoUrl, {useNewUrlParser: true}, (err, client) => {
+    console.log("Connected to database!");
+
+    // makes new database
+    let db = client.db("testing"); 
+});
+
+
 //sets up session
 app.use(session({
     secret: '2803urp3wjefpwaabjkbvnop0',
@@ -37,25 +45,25 @@ app.get("/main",(req, res)=> {
 
 
 //router for login
-//let loginRouter = require("./login-router");
-//app.use("/user", loginRouter);
+let loginRouter = require("./login-router");
+app.use("/user", loginRouter);
 
 //router for basic wordle 
-//let basicWordleRouter = require("./basic-wordle-router");
-//app.use("/basicWordle", basicWordleRouter);
+let basicWordleRouter = require("./basic-wordle-router");
+app.use("/basicWordle", basicWordleRouter);
 
 //router for basic wordle 
-//let songGuessRouter = require("./song-guess-router");
-//app.use("/guessSong", songGuessRouter);
+let songGuessRouter = require("./song-guess-router");
+app.use("/guessSong", songGuessRouter);
  
 
-// Initialize database connection on server side
-// mc.connect(mongoUrl, { useNewUrlParser: true },(err, client) => {
-//     if(err) throw err;
+//Initialize database connection on server side
+mc.connect(mongoUrl, { useNewUrlParser: true },(err, client) => {
+    if(err) throw err;
   
-//     db = client.db('testing');
+    db = client.db('testing');
     
     const port = process.env.PORT || 3000;
     app.listen(port);
     console.log("Listening on port 3000");
-// });
+});
